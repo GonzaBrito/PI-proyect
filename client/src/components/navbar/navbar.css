@@ -1,0 +1,24 @@
+.search {
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 2px;
+    width: 150px;
+    margin-bottom: 30px;
+  }
+  
+  .contenedor-search {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .button {
+    width: 60px;
+    margin: auto;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
