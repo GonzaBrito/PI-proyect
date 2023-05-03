@@ -1,14 +1,13 @@
 import "./card.css";
 
-const Card = () => {
-    return(
+const Card = ({ game }) => {
+    // console.log(`game: ${game}`);
+    return (
         <div className="card-container">
-            <h2>Name: </h2>
-            <p>Description: </p>
-            <p>Platforms: </p>
-            <p>Image: </p>
-            <p>Released: </p>
-            <p>Rating: </p>
+            <img className="img" src={game.image} alt={`Game: ${game.name}`} />
+            <div>{game.platforms?.map((plat) => <h3>{plat.platform.name}</h3>)}</div>
+            <h2>{game.name}</h2>
+            <h3>{game.rating}</h3>
         </div>
     )
 }
