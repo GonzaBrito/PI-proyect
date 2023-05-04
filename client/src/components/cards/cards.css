@@ -7,6 +7,7 @@
     /* display: grid; display grid lo utilizamos al igual que el flex para acomodar con mayor facilidad los elementos */
     /* grid-template-columns: repeat(5, 1fr); y utilizamos esta propiedad de grid para automaticamente decirle en cuantos elementos queremos que nos los acomode en este caso 4 que ocupen 1fraccion */
     grid-gap: 30px; /* gap lo utilizamos para dar espacio entre los elementos */
+    position: relative;
   }
   
 

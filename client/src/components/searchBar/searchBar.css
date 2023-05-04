@@ -1,0 +1,36 @@
+.SearchBar-container{
+    background-color: black;
+}
+
+.button{
+    text-align: center;
+    padding: 7px;
+    margin: 10px;
+    border: 10px;
+    border-radius: 15px;
+    background-color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.search{
+    text-align: center;
+    padding: 7px;
+    margin: 10px;
+    border: 10px;
+    width: 30%;
+    border-radius: 15px;
+    background-color: white;
+    font-weight: bold;
+}
+
+/* button {
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    border: none;
+    border-radius: 1.1em;
+    background-color: #212121;
+    color: white;
+    padding: 1em 2em;
+    cursor: pointer;
+   } */
