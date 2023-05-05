@@ -1,28 +1,32 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { gamesName } from "../../redux/actions/actions";
 import "./searchBar.css";
-// import { useState, useEffect } from "react";
-// import axios from "axios";
 
 const SearchBar = () => {
 
-    // const [getGameName, setGameName ] = useState([]);
+    const dispatch = useDispatch();
+    const [ search, setSearch ] = useState("")
+    
+    const handleChange = (event) => {
+        const {value} = event.target;
+        setSearch(value);
+    }
 
-    // useEffect(() => {
-    //     const getGame = async (name) => {
-    //         try {
-    //             const response = await fetch (`http://localhost:3001/videogames?search=${name}`)
-    //             const data = await response.json();
-    //             setGameName(data);
-    //         } catch (error) {
-    //             console.error(error);
-    //         }
-    //     }
-    //     getGame()
-    // }, []);
+    const mandar = (event) => {
+        event.preventDefault()
+        dispatch(gamesName(search));
+    }
 
     return (
         <div className="SearchBar-container">
-            <input className="search" placeholder="Buscar..." />
-            <button className="button">Buscar</button>
+            <input 
+                className = "search" 
+                placeholder = "Buscar..."
+                value={search}
+                onChange = {(event) => handleChange(event)} 
+            />
+            <button className="button" onClick={(event) => mandar(event)} >Buscar</button>
         </div>
     )
 }
