@@ -1,14 +1,18 @@
 import "./card.css";
+import { Link } from "react-router-dom";
 
-const Card = ({ game }) => {
+const Card = ({ game}) => {
     // console.log(`game: ${game}`);
+
     return (
-        <div className="card-container">
-            <img className="img" src={game.image} alt={`Game: ${game.name}`} />
-            <div>{game.platforms?.map((plat) => <h3>{plat.platform.name}</h3>)}</div>
-            <h2>{game.name}</h2>
-            <h3>{game.rating}</h3>
-        </div>
+        <Link to={`/detail/${game.id}`}>
+            <div className="card-container">
+                <img className="img" src={game.image} alt={`Game: ${game.name}`} />
+                <h4>{game.platforms}</h4>
+                <h2>{game.name}</h2>
+                <h3>{game.rating}</h3>
+            </div>
+        </Link>
     )
 }
 

@@ -1,37 +1,27 @@
 import Card from "../card/Card";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getGames } from "../../redux/actions/actions"
 import "./cards.css";
 
 const Cards = () => {
 
-    //seteo el estado de los juegos que se van a traer del back, inicializo como array vacio  
-    const [gamesData, setGamesData] = useState([]);
+    const games = useSelector((state) => state.games)
+    const dispatch = useDispatch();
 
-    const [loaderGames, setLoaderGames] =useState(false);
-    
     useEffect(() => {
-        const getGames = async () => {
-            try {
-                setLoaderGames(true);
-                const response = await fetch('http://localhost:3001/videogames');
-                const data = await response.json();
-                setGamesData(data);
-                setLoaderGames(false);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-        getGames();
-    }, []);
+        dispatch(getGames());
+    }, [dispatch]);
 
     return (
         <div className="card-list">
-            { loaderGames ? <h1>Loading...</h1> : gamesData.map((game) => (
+            { games.length ?  games.map((game) => (
                 <Card
                     key={game.id}
                     game={game}
-                />
-            ))}
+                />  
+            ))
+            : <h1>Loading...</h1>}
         </div>
     )
 }

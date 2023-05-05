@@ -16,7 +16,7 @@ const getGameId = async (id) => {
                 genres: game.genres?.map((gen) => gen.name),
                 platforms: game.platforms?.map((plat) => plat.platform.name),
                 released: game.released,
-                image: game.image,
+                image: game.background_image,
                 rating: game.rating,
             };
         })
