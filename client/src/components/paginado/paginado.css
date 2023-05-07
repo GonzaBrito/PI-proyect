@@ -1,0 +1,18 @@
+.divContainer{
+   display: flex;
+   justify-content: center;
+   gap: 7px;
+   margin: 20px;
+}
+
+button{
+   cursor: pointer;
+}
+
+.spanPagina{
+   color: black;
+   cursor: pointer;
+   border-radius: 3px;
+   background-color: bisque;
+   width: 20px;
+}

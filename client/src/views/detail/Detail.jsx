@@ -21,24 +21,25 @@ useEffect(() => {
     dispatch(getGameId(params.id));
     //en el array de depencia sirve para volver a ejecutar la funcion getGameId cuando se haga un cambio en el componente 
     //y que muestre el componentne actualizado sin necesidad de volver a cargar la pagina
-}, []);
-
-// console.log("soy le primero",detalle);
+}, [dispatch, params.id]);
 
 return(
-    <div className="detail-container">
-        {/* pregunto si hay algo dentro de detail[0].id y si hay algo lo muestro sino muestro un loading */}
-        {detail[0]?.id ? 
-        <div>
-            {/* tengo que usar el "?" para hacer una especie de pausa hasta que me traiga toda la informacion y poder renderizarla, si no lo hago me tira error */}
-            <h3> {detail[0]?.id} </h3>
-            <h3> {detail[0]?.name} </h3>
-            {/* <img src={detail[0]?.image} alt={`Game: ${detail[0]?.name}`} /> */}
-            <h3> {detail[0]?.platforms} </h3>
-            <h3> {detail[0]?.description} </h3>
-            <h3> {detail[0]?.released} </h3>
-            <h3> {detail[0]?.rating} </h3>
-            <h3> {detail[0]?.genre} </h3>
+    <div className="divGeneral">
+        {detail?.id ? 
+        <div className="divItems">
+            <h1 className="title"> {detail?.name} </h1>
+            <div className="divItems2">
+                <img className="imgDetail" src={detail?.image} alt={`Game: ${detail?.name}`} />
+            </div>
+            <div className="divPlat">
+                <h2>Platforms:</h2>
+                {detail?.platforms?.map((plat) => (
+                    <p className="platcss">{plat}</p>
+                ))}
+            </div>
+            <div>
+            <p> {detail?.description} </p>
+            </div>
         </div>
         : <h3>Cargando...</h3> }    
     </div>
@@ -50,3 +51,30 @@ export default Detail;
             
             
 
+
+
+{/* <div className="divItems">
+            <h1 className="title"> {detail?.name} </h1>
+            <div className="divItems2">
+                    <img className="imgDetail" src={detail?.image} alt={`Game: ${detail?.name}`} />
+                <div>
+                    <h2>Platforms:</h2>
+                    {detail?.platforms?.map((plat) => (
+                        <p className="platcss">{plat}</p>
+                    ))}
+                </div>
+                <div>
+                    <h2>Released:</h2>
+                    <h4> {detail?.released} </h4>
+                    <h2>Rating:</h2>
+                    <h4> {detail?.rating} </h4>
+                    <h2>Genres:</h2>
+                    <div> {detail?.genre?.map((gen)=> (
+                        <p className="gencss">{gen}</p>
+                    ))} </div>
+                </div>
+            </div>
+            <div>
+            <p> {detail?.description} </p>
+            </div>
+        </div> */}

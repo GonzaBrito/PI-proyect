@@ -5,9 +5,9 @@ const Card = ({ game}) => {
     // console.log(`game: ${game}`);
 
     return (
-        <Link to={`/detail/${game.id}`}>
+        <Link className="link" to={`/videogames/${game.id}`}>
             <div className="card-container">
-                <img className="img" src={game.image} alt={`Game: ${game.name}`} />
+                <img className="imgCard" src={game.image} alt={`Game: ${game.name}`} />
                 <h4>{game.platforms}</h4>
                 <h2>{game.name}</h2>
                 <h3>{game.rating}</h3>
