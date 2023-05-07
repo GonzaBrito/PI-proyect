@@ -1,5 +1,5 @@
 .card-list {
-    width: 100vw; /* le decimos que el contenedor tiene que ocupar el 85% del viewport width(ancho de ventana) */
+    width: 100%; /* le decimos que el contenedor tiene que ocupar el 85% del viewport width(ancho de ventana) */
     /* margin: 0 auto; le estamos dando un margen de 0 arr/aba y auto para los lados */
     flex-wrap: wrap;
     display: flex;
@@ -9,7 +9,16 @@
     grid-gap: 30px; /* gap lo utilizamos para dar espacio entre los elementos */
     position: relative;
   }
-  
+
+  .cardsLoader{
+    background-image: url("../../../img/3yDz.gif");
+    background-image: url("../../../img/Landing.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 1249px;
+    background-attachment: fixed;
+    background-size: cover;
+}
 
 @media only screen and (min-width:1870) {
     .card-list{

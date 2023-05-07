@@ -1,10 +1,10 @@
 .card-container {
   /* background-color: aqua; */
   width: 300px;
-  height: 350px;
+  height: 500px;
   border-radius: 30px;
   background: #212121;
-  color: white;
+  color: rgb(177, 155, 155);
   z-index: 10;
   box-shadow: inset -5px -5px 60px #130a2e,
             inset 5px 5px 60px #130a2e;
@@ -19,7 +19,7 @@
   background: #212121;
   box-shadow: inset -39px -39px 78px #492094,
             inset 39px 39px 78px #492094;
-  color:black;
+  color:rgb(255, 255, 255);
  }
 
 
@@ -33,5 +33,16 @@
 
 .link{
   text-decoration: none;
+}
+
+.gencss{
+  display: flex;
+  justify-content: flex-start;
+  background-color: #1a1424;
+  width: 300px;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 0 10px 0;
+  font-size: 13px;
 }
 

@@ -1,8 +1,10 @@
 .divContainer{
    display: flex;
    justify-content: center;
-   gap: 7px;
+   align-items: center;
+   gap: 9px;
    margin: 20px;
+   height: 30px;
 }
 
 button{
@@ -12,7 +14,7 @@ button{
 .spanPagina{
    color: black;
    cursor: pointer;
-   border-radius: 3px;
+   border-radius: 4px;
    background-color: bisque;
    width: 20px;
 }

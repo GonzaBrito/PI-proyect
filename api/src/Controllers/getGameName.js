@@ -5,7 +5,6 @@ const { Videogame } = require("../db");
 const { Op } = require('sequelize');
 
 const getApi = async (name) => {
-    //console.log(name);
     const apiGames = await axios.get(`https://api.rawg.io/api/games?search=${name}&key=${API_KEY}`);
     const games = apiGames.data.results;
 
@@ -20,7 +19,10 @@ const getApi = async (name) => {
             rating: game.rating,
         };
     })
-    return gameApi;
+
+    const gameApi15 = gameApi.slice(0,15);
+    
+    return gameApi15;
 }
 
 const getDb = async (name) => {

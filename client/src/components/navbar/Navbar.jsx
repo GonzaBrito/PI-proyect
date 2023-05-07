@@ -3,8 +3,8 @@ import "./navbar.css";
 
 const Navbar = () => {
     return(
-        <div className="contenedor-search">
-            <form className="form">
+        <div>
+            <form>
                 <SearchBar /> 
             </form>
         </div>

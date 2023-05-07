@@ -42,7 +42,7 @@ const Cards = () => {
                         game={game}
                     />
                 ))
-                    : <h1>Loading...</h1>}
+                    : <img className="cardsLoader"></img>}
 
             </div>
         </div>
