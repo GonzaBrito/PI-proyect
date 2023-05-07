@@ -21,8 +21,11 @@ const SearchBar = () => {
     return (
         <div className="SearchBar-container">
             <input 
-                className = "search" 
+                className = "input" 
                 placeholder = "Buscar..."
+                type = "text"
+                autocomplete="off"
+                name="text"
                 value={search}
                 onChange = {(event) => handleChange(event)} 
             />

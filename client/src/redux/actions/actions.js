@@ -36,7 +36,6 @@ export const getGameId = (id) => {
     return async function(dispatch){
         const game = await axios.get(`http://localhost:3001/videogames/${id}`)
         const gameData = game.data;
-        console.log("soy la action",gameData);
         return dispatch({type: GET_GAME_ID, payload: gameData})
     }
 }
