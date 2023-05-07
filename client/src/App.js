@@ -1,5 +1,4 @@
 import './App.css';
-import Navbar from './components/navbar/Navbar';
 import Create from './views/create/Create';
 import Detail from './views/detail/Detail';
 import Home from './views/home/Home';
@@ -15,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      {location.pathname !== "/"  && <Navbar /> }
+      {/* {(location.pathname !== "/" && <Navbar /> } */}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />

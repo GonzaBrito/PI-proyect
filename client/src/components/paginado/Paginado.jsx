@@ -35,17 +35,12 @@ const Paginado = ({ pagina, setPagina, totalPage }) => {
     }
   }, [])
 
+  //se utiliza esta funcion para poder mapear un numero y asi poder devolver un "span"
   const paginas = Array.from({ length: Math.ceil(totalPage) }, (_, i) => i + 1)
 
   return (
     <div className="divContainer">
       <button onClick={antPag} disabled={pagina === 1}>🡸</button>
-      {/* <input
-        type="text"
-        name="page"
-        autoComplete="off"
-        value={page || 1}
-      /> */}
       {paginas.map((pag, index) => (
         <span
           key={index}

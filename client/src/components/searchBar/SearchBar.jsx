@@ -7,7 +7,7 @@ const SearchBar = () => {
 
     const dispatch = useDispatch();
     const [ search, setSearch ] = useState("")
-    
+     
     const handleChange = (event) => {
         const {value} = event.target;
         setSearch(value);

@@ -30,8 +30,6 @@ export const gamesName = (search) => {
     }
 }
 
-
-
 export const getGameId = (id) => {
     return async function(dispatch){
         const game = await axios.get(`http://localhost:3001/videogames/${id}`)
