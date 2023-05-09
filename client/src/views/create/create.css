@@ -1,0 +1,99 @@
+.divContainer-general{
+    color: white;
+}
+
+.create-container__header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: black;
+    height: 100px;
+    font-size: 30px;
+}
+
+.create-container__header .button{
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    margin: 0 0 0 0;
+    color: black;
+    position: absolute;
+    left: 100px;
+}
+
+.create-container__header .h1{
+    display: flex;
+    justify-content: center;
+}
+
+.create-container__info{
+    display: block;
+    width: 80%;
+    margin: 40px 0  0 10%;
+    background-color: rgb(34, 26, 26);
+}
+
+.create-container__name{
+    display: flex;
+    font-size: 50px;  
+}
+
+.divContainer-general .input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    border-radius: 15px;
+    padding: 1em;
+    background-color: #ccc;
+    box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+    transition: 300ms ease-in-out;
+    
+   }
+   
+   .input:focus {
+    outline-color: #e8e8e8;
+    background: #e8e8e8;
+    box-shadow: inset 20px 20px 60px #c5c5c5,
+           inset -20px -20px 60px #ffffff;
+    transition: 0.3s;
+   }
+
+
+
+
+   .button-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    margin-top: 30px;
+    background-image: linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%);
+    border-radius: 30px;
+    border: 1px solid #8F9092;
+    transition: all 0.2s ease;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #606060;
+    text-shadow: 0 1px #fff;
+  }
+  
+  .button-submit:hover {
+    box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #CECFD1;
+  }
+  
+  .button-submit:active {
+    box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+  }
+  
+  .button-submit:focus {
+    box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+  }

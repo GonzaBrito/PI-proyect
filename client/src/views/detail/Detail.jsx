@@ -49,7 +49,7 @@ const Detail = () => {
                         </div>
                         <div className="detail-container__genres">
                             <h2>GENRES:</h2>
-                            {detail?.genre?.map((gen) => (
+                            {detail?.genres?.map((gen) => (
                                 <span className="genres">{gen}</span>
                             ))}
                         </div>
@@ -61,7 +61,7 @@ const Detail = () => {
                             ))}
                         </div>
                         <hr />
-                        <h2 className="nameDescription">DESCRIPTION:</h2>
+                        <h2 className="nameDescription">DESCRIPTION</h2>
                         <div className="detail-container__description">
                             <span> {detail?.description} </span>
                         </div>

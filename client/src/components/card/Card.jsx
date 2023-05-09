@@ -13,7 +13,7 @@ const Card = ({ game }) => {
                 </div>
                 <div className="gencss">
                     <h3>Generos:</h3>
-                    {game?.genre?.map((gen) => (
+                    {game?.genres?.map((gen) => (
                         <span>{gen}</span>
                     ))}
                 </div>

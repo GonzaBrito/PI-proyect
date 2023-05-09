@@ -1,7 +1,7 @@
 import Card from "../card/Card";
 import { useEffect } from "react";
 import { useDispatch, useSelector} from "react-redux";
-import { useSearchParams } from "react-router-dom"
+// import { useSearchParams } from "react-router-dom"
 import { useState } from "react";
 import { getGames } from "../../redux/actions/actions";
 import Paginado from "../../components/paginado/Paginado";
@@ -12,7 +12,6 @@ const Cards = () => {
     const porPagina = 15;
 
     const games = useSelector((state) => state.games)
-    
 
     const dispatch = useDispatch();
 
@@ -25,7 +24,7 @@ const Cards = () => {
 
     //y armamoss la variable de total de paginas
     const totalPage = games.length / porPagina;
-
+    
     return (
         <div>
             <Paginado pagina={pagina} setPagina={setPagina} totalPage={totalPage}/>
@@ -42,7 +41,7 @@ const Cards = () => {
                         game={game}
                     />
                 ))
-                    : <img className="cardsLoader"></img>}
+                : <img src="" alt="Loader" /> }
 
             </div>
         </div>

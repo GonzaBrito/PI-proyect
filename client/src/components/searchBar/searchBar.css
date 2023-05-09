@@ -4,9 +4,34 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+.SearchBar-container .allGames{
+    position: absolute;
+    right: 225px;
+    text-align: center;
+    padding: 1em;
+    border-radius: 15px;
+    background-color: #ccc;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
 }
 
 .button{
+    text-align: center;
+    padding: 1em;
+    border-radius: 15px;
+    background-color: #ccc;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.create{
+    position: absolute;
+    right: 140px;
     text-align: center;
     padding: 1em;
     border-radius: 15px;
