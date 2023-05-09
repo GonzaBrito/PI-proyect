@@ -33,7 +33,7 @@ const Paginado = ({ pagina, setPagina, totalPage }) => {
         setPagina(Number(page))
       }
     }
-  }, [])
+  }, [page])
 
   //se utiliza esta funcion para poder mapear un numero y asi poder devolver un "span"
   const paginas = Array.from({ length: Math.ceil(totalPage) }, (_, i) => i + 1)

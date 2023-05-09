@@ -32,6 +32,7 @@ const getGames = async () => {
     })
 
     if (allGames) {
+        console.log("esto es gameApi", gameApi);
         return gameApi;
     } else {
         throw Error('Juegos no encontrados');

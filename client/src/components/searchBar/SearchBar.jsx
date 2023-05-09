@@ -1,21 +1,21 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { gamesName } from "../../redux/actions/actions";
+import { gamesName, getGames } from "../../redux/actions/actions";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import "./searchBar.css";
 
 const SearchBar = () => {
 
+
     const dispatch = useDispatch();
+    const [searchParams , setSearchParams] = useSearchParams();
     const [ search, setSearch ] = useState("")
-     
-    const handleChange = (event) => {
-        const {value} = event.target;
-        setSearch(value);
-    }
+    const navigate = useNavigate()
 
     const mandar = (event) => {
         event.preventDefault()
         dispatch(gamesName(search));
+        setSearchParams({page: 1});
     }
 
     return (
@@ -23,13 +23,13 @@ const SearchBar = () => {
             <input 
                 className = "input" 
                 placeholder = "Buscar..."
-                type = "text"
                 autocomplete="off"
-                name="text"
                 value={search}
-                onChange = {(event) => handleChange(event)} 
+                onChange = {(event) => setSearch(event.target.value)} 
             />
             <button className="button" onClick={(event) => mandar(event)} >Buscar</button>
+            <button className="allGames" onClick={() => dispatch(getGames())} >All Games</button>
+            <button className="create" onClick={() => navigate("/create")} >Create</button>
         </div>
     )
 }
