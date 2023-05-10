@@ -3,6 +3,7 @@ const { getGames } = require("../Controllers/getVgame")
 const { getGameId } = require("../Controllers/getGameId")
 const { postGame } = require("../Controllers/postGame")
 const { getGameName } = require("../Controllers/getGameName")
+const { Videogame, Genre } = require('../db')
 
 
 //handle para pedir los juegos 
@@ -36,10 +37,18 @@ const getIdVGames = async (req, res) => {
 
 //handle para postear un nuevo juego 
 const postVGame = async (req, res) => {
-    const { name, description, platforms, image, released, rating } = req.body;
+    const { name, description, platforms, image, released, rating, genres } = req.body;
     try {
-        const newGame = await postGame(name, description, platforms, image, released, rating);
-        res.status(200).json(newGame);
+        const newGame = await postGame(name, description, platforms, image, released, rating, genres);
+        const gameNew = await Videogame.findOne({
+            where:{
+                id:newGame.id
+            },
+            include:{
+                model:Genre
+            }
+        })
+        res.status(200).json(gameNew);
     } catch (error) {
         res.status(500).json({error: error.message})
     }

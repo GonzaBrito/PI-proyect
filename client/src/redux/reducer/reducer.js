@@ -1,10 +1,11 @@
-import { GET_GAMES, GET_GAME_NAME, GET_GAME_ID, GET_GENRES, FILTER_GENRES, FILTER_SORTED } from "../actions/actions";
+import { GET_GAMES, GET_GAME_NAME, GET_GAME_ID, GET_GENRES, FILTER_GENRES, FILTER_SORTED, GET_PLATFORMS } from "../actions/actions";
 
 
 const initialState = {
     games: [],
     gameId: [],
     genres: [],
+    platforms: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -26,6 +27,9 @@ const rootReducer = (state = initialState, action) => {
 
         case FILTER_SORTED:
             return { ...state, games: action.payload };
+
+        case GET_PLATFORMS:
+            return { ...state, platforms: action.payload };
 
         default:
             return { ...state };

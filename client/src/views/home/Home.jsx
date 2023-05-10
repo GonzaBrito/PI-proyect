@@ -5,13 +5,11 @@ import "./home.css";
 
 
 const Home = () => {
-    return(
-        <div className="home-title">
-            <Navbar/>
-            <div style={{display:"flex", flexDirection:"row"}}>
-                <div>
-                    <Filter/>
-                </div>
+    return (
+        <div >
+            <Navbar />
+            <div className="home-title">
+                <Filter />
                 <Cards />
             </div>
         </div>

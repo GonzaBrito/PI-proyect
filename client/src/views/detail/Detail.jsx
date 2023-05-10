@@ -25,18 +25,24 @@ const Detail = () => {
         //y que muestre el componentne actualizado sin necesidad de volver a cargar la pagina
     }, [dispatch, params.id]);
 
-    const back = () => {
-        navigate("/home");
-    }
-
     const valoracion = Array.from({ length: Math.round(detail?.rating) }, (_, i) => i)
+
+    //--------------------------------
+    //quitarle etiquetas html a la description
+
+    const etiquetas = ["<p>", "<br />", "</p>"]
+    const regex = new RegExp(etiquetas.join("|"), "gi");
+    const descriptionLimpia = detail?.description?.replace(regex, "");
+
+    //--------------------------------
+
 
     return (
         <div>
             {detail?.id ?
                 <div className="detail-container">
                     <div className="detail-container__title">
-                        <button className="button" onClick={back} >Volver</button>
+                        <button className="detailButton" onClick={() => navigate("/home")} >Volver</button>
                         <h1 className="title"> {detail?.name} </h1>
                     </div>
                     <div className="detail-container__informacion">
@@ -63,11 +69,11 @@ const Detail = () => {
                         <hr />
                         <h2 className="nameDescription">DESCRIPTION</h2>
                         <div className="detail-container__description">
-                            <span> {detail?.description} </span>
+                            <span> {descriptionLimpia} </span>
                         </div>
                     </div>
                 </div>
-                : <img className="detailLoader"></img> }
+                : <img className="detailLoader"></img>}
         </div>
     )
 }

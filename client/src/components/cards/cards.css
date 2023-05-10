@@ -1,27 +1,37 @@
 .card-list {
-    width: 100%; /* le decimos que el contenedor tiene que ocupar el 85% del viewport width(ancho de ventana) */
-    /* margin: 0 auto; le estamos dando un margen de 0 arr/aba y auto para los lados */
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: center;
-    /* display: grid; display grid lo utilizamos al igual que el flex para acomodar con mayor facilidad los elementos */
-    /* grid-template-columns: repeat(5, 1fr); y utilizamos esta propiedad de grid para automaticamente decirle en cuantos elementos queremos que nos los acomode en este caso 4 que ocupen 1fraccion */
-    grid-gap: 30px; /* gap lo utilizamos para dar espacio entre los elementos */
-    position: relative;
-  }
-
-  .cardsLoader{
-    background-image: url("../../../img/3yDz.gif");
-    background-image: url("../../../img/Landing.jpg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    height: 1249px;
-    background-attachment: fixed;
-    background-size: cover;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  overflow-y: scroll;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  grid-gap: 30px;
+  padding-bottom: 200px;
 }
 
+.cardsLoader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  width: 100%;
+}
+
+.card-list::-webkit-scrollbar{
+  width: 7px;
+}
+
+.card-list::-webkit-scrollbar-thumb{
+  border-radius: 5px;
+  background-color: bisque;
+}
+
+
+
 @media only screen and (min-width:1870) {
-    .card-list{
-      grid-template-columns: repeat(4, 1fr);
-    }
+  .card-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

@@ -1,7 +1,7 @@
 .card-container {
   /* background-color: aqua; */
   width: 300px;
-  height: 500px;
+  height: 510px;
   border-radius: 30px;
   background: #212121;
   color: rgb(177, 155, 155);
@@ -10,8 +10,7 @@
             inset 5px 5px 60px #130a2e;
   transition: 0.7s;
  }
-
- .card-container:hover {
+ /* .card-container:hover {
   width: 300px;
   height: 500px;
   border-radius: 30px;
@@ -20,8 +19,7 @@
   box-shadow: inset -39px -39px 78px #492094,
             inset 39px 39px 78px #492094;
   color:rgb(255, 255, 255);
- }
-
+ } */
 
 .imgCard{
   height: 200px;
@@ -35,14 +33,55 @@
   text-decoration: none;
 }
 
-.gencss{
+.card-Container__info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px;
+  padding: 10px;
+  padding-bottom: 25px;
+}
+
+.nameGenContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+.genresContainer{
   display: flex;
   justify-content: flex-start;
-  background-color: #1a1424;
-  width: 300px;
+  align-items: center;
+  height: 100px;
+  width: 100%;
   flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px 0 10px 0;
-  font-size: 13px;
+  padding: 0px 10px;
+  font-size: 17px;
 }
+.genresContainer h3{
+  margin-right: 5px;
+}
+.genresContainer .span{
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-right: 10px;
+}
+
+.ratingContainer{
+  display: flex;
+  height: 100px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ratingContainer__rating{
+  gap: 10px;
+  padding: 10px 10px;
+}
+.ratingContainer__rating .rating{
+  color: white;
+}
+.ratingContainer .span{
+  font-size: 25px;
+}
+
 

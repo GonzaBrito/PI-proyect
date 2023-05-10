@@ -6,6 +6,8 @@ export const GET_GAME_ID = "GET_GAME_ID"
 export const GET_GENRES = "GET_GENRES"
 export const FILTER_GENRES = "FILTER_GENRES"
 export const FILTER_SORTED = "FILTER_SORTED"
+export const GET_PLATFORMS = "GET_PLATFORMS"
+
 
 
 
@@ -21,6 +23,7 @@ export const getGames = () => {
     return async function (dispatch) {
         const games = await axios.get(`http://localhost:3001/videogames`)
         const gamesData = games.data;
+        // console.log("soy gamesData", gamesData);
         return dispatch({ type: GET_GAMES, payload: gamesData })
     }
 }
@@ -43,7 +46,7 @@ export const getGameId = (id) => {
 
 export const postGame = async (data) => {
     const post = await axios.post(`http://localhost:3001/videogames/`, data)
-    return post;
+    return post.data;
 }
 
 
@@ -84,6 +87,16 @@ export const sortedGames = (order) => {
             filtrados = gamesData.sort((a, b) => a.rating - b.rating)
         }
         return dispatch({ type: FILTER_SORTED, payload: filtrados })
+    }
+}
+
+
+export const getPlatforms = () => {
+    return async function (dispatch) {
+        const plat = await axios.get(`http://localhost:3001/videosgames`)
+        const platforms = plat.data;
+        const filterPlat = platforms.filter(plat => plat)
+        return dispatch({ type: GET_PLATFORMS, payload: filterPlat })
     }
 }
 
