@@ -1,4 +1,4 @@
-import { GET_GAMES, GET_GAME_NAME, GET_GAME_ID, GET_GENRES, FILTER_GENRES, FILTER_SORTED, GET_PLATFORMS } from "../actions/actions";
+import { GET_GAMES, GET_GAME_NAME, GET_GAME_ID, GET_GENRES, FILTER_GENRES, FILTER_SORTED, GET_PLATFORMS, POST_GAMES } from "../actions/actions";
 
 
 const initialState = {
@@ -30,6 +30,10 @@ const rootReducer = (state = initialState, action) => {
 
         case GET_PLATFORMS:
             return { ...state, platforms: action.payload };
+
+        case POST_GAMES:
+            return { ...state};
+        
 
         default:
             return { ...state };

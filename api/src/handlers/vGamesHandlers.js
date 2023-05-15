@@ -37,18 +37,28 @@ const getIdVGames = async (req, res) => {
 
 //handle para postear un nuevo juego 
 const postVGame = async (req, res) => {
-    const { name, description, platforms, image, released, rating, genres } = req.body;
+    const { name, description, platforms, background_image, genres, released, rating } = req.body
     try {
-        const newGame = await postGame(name, description, platforms, image, released, rating, genres);
-        const gameNew = await Videogame.findOne({
-            where:{
-                id:newGame.id
-            },
-            include:{
-                model:Genre
+        const newGame = await postGame(name, description, platforms, background_image, genres, released, rating);
+
+        const genresDb = await Genre.findAll({
+            where: {
+                name: genres
             }
         })
-        res.status(200).json(gameNew);
+        // console.log("*********",genres)
+        newGame.addGenre(genresDb)
+
+        res.status(200).json(newGame)
+        // const gameNew = await Videogame.findOne({
+        //     where:{
+        //         id:newGame.id
+        //     },
+        //     include:{
+        //         model:Genre
+        //     }
+        // })
+        // res.status(200).json(gameNew);
     } catch (error) {
         res.status(500).json({error: error.message})
     }

@@ -7,7 +7,7 @@ const Card = ({ game }) => {
     return (
         <Link className="link" to={`/videogames/${game.id}`}>
             <div className="card-container">
-                <img className="imgCard" src={game.image} alt={`Game: ${game.name}`} />
+                <img className="imgCard" src={game.image || game.background_image} alt={`Game: ${game.name}`} />
                 <div className="card-Container__info">
                     <div className="nameGenContainer">
 

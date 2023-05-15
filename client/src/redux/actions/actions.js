@@ -7,6 +7,7 @@ export const GET_GENRES = "GET_GENRES"
 export const FILTER_GENRES = "FILTER_GENRES"
 export const FILTER_SORTED = "FILTER_SORTED"
 export const GET_PLATFORMS = "GET_PLATFORMS"
+export const POST_GAMES = "POST_GAMES"
 
 
 
@@ -44,11 +45,21 @@ export const getGameId = (id) => {
     }
 }
 
-export const postGame = async (data) => {
-    const post = await axios.post(`http://localhost:3001/videogames/`, data)
-    return post.data;
-}
+export const postGame = async (payload) => {
+    // return async (dispatch) => {
+        try {
+            const response = await axios.post(`http://localhost:3001/videogames/`, payload);
+            return response.data;
+        } catch (error) {
+            console.error("error", error)
+        }
+    // };
+};
 
+// export const postGame = (data) => {
+//         const post = axios.post(`http://localhost:3001/videogames/`, data)
+//         return post.data;
+//     }  
 
 export const getGenres = () => {
     return async function (dispatch) {

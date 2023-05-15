@@ -4,17 +4,21 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Input from "../../components/Input/Input"
+import validate from "./errors";
 
 const Create = () => {
 
+    const allGames = useSelector((state) => state.games)
     const allGenres = useSelector((state) => state.genres)
     const navigate = useNavigate();
+
+    const [error, setError] = useState({});
 
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getGenres())
-    }, []);
+    }, [dispatch]);
 
     const allPlatforms = ['PC', 'Xbox', 'PlayStation', 'Nintendo', 'Switch', 'iOS', 'Android']
 
@@ -43,7 +47,7 @@ const Create = () => {
                     : [...form.genres, value]
                 setForm({
                     ...form,
-                    genres: genres 
+                    genres: genres
                 })
             }
         } else {
@@ -52,18 +56,44 @@ const Create = () => {
                 [name]: value
             })
         }
+        setError(
+            validate({
+                ...form,
+                [e.target.value]: e.target.value,
+            })
+        );
     }
 
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault()
-    //     if (Object.keys(error).length === 0) {
-    //         postGame(input)
-    //         alert("Esta todo correcto");
-    //     }
+    function post() {
+        let gamesRepetion = allGames.filter((n) => n.name === form.name);
+        if (gamesRepetion.length !== 0) {
+            alert("Please choose another name, it already exists");
+        } else {
+            if (
+                Object.keys(error).length !== 0 ||
+                !form.genres?.length ||
+                !form.platforms?.length
+            ) {
+                alert("All fields must be completed");
+            } else {
+                if (Object.keys(error).length === 0 && form.genres.length > 0) {
+                    postGame(form);
+                    alert("Videogame successfully created");
+                    // setForm({
+                    //     name: "",
+                    //     image: "",
+                    //     description: "",
+                    //     released: "",
+                    //     rating: "",
+                    //     platforms: [],
+                    //     genres: [],
+                    // });
 
-    //     console.log("esto es form", form);
-    // }
+                }
+            }
+        }
+    }
 
 
     return (
@@ -78,17 +108,18 @@ const Create = () => {
                     <div className="create-container__info">
 
                         <div className="containerNI">
-                            <Input name="name" value={form?.name} label="Name" onChange={handleChange} />
-                            <Input name="image" value={form?.image} label="Image" onChange={handleChange} />
+                            <Input name="name" value={form?.name} label="Name" onChange={handleChange} error={error.name} />
+
+                            <Input name="background_image" value={form?.background_image} label="Image" onChange={handleChange} />
                         </div>
 
                         <div className="containerDR">
-                            <Input type="date" name="released" value={form?.released} label="Released" onChange={handleChange} />
-                            <Input name="rating" value={form?.rating} label="Rating" onChange={handleChange} />
+                            <Input type="date" name="released" value={form?.released} label="Released" onChange={handleChange} error={error.released} />
+                            <Input name="rating" value={form?.rating} label="Rating" onChange={handleChange} error={error.rating} />
                         </div>
 
                         <div className="containerD">
-                            <Input name="description" value={form?.description} label="Description" onChange={handleChange} />
+                            <Input name="description" value={form?.description} label="Description" onChange={handleChange} error={error.description} />
                         </div>
 
                         <div className="containerPG">
@@ -107,11 +138,12 @@ const Create = () => {
                                     <Input key={index} type="checkbox" name="genres" value={gen} label={gen} onChange={handleChange} />
                                 ))}
                             </div>
-                            
+
                         </div>
                         <div className="createButtonContainer">
 
-                        <button className="button-submit" type="button" onClick={() => postGame(form)} >Create</button>
+                            <button disabled={Object.keys(error).length !== 0} className="button-submit" type="button" onClick={post} >Create</button>
+                            {/* <button disabled={Object.keys(error).length !== 0} className="button-submit" type="button" onClick={() => postGame(form) && window.alert("Se creo el juego correctamente")} >Create</button> */}
                         </div>
                     </div>
                 </div>
