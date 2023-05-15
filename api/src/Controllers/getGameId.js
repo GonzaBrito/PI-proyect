@@ -1,7 +1,7 @@
 require('dotenv').config();
 const {API_KEY} = process.env;
 const axios = require("axios");
-const { Videogame } = require("../db");
+const { Videogame, Genre } = require("../db");
 
 
 const getGameId = async (id) => {
@@ -27,11 +27,11 @@ const getGameId = async (id) => {
             return {
                 id: dbGame.id,
                 name: dbGame.name,
-                description: db.description,
-                genres: dbGame.genres?.map((gen) => gen.name),
-                platforms: dbGame.platforms?.map((plat) => plat.name),
+                description: dbGame.description,
+                genres: dbGame.Genres?.map((gen) => gen.name),
+                platforms: dbGame.platforms?.map((plat) => plat),
                 released: dbGame.released,
-                image: dbGame.image,
+                image: dbGame.background_image,
                 rating: dbGame.rating,
             };
         } else {

@@ -1,6 +1,6 @@
 import Card from "../card/Card";
 import { useEffect } from "react";
-import { useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import { useSearchParams } from "react-router-dom"
 import { useState } from "react";
 import { getGames } from "../../redux/actions/actions";
@@ -12,7 +12,7 @@ const Cards = () => {
     const porPagina = 15;
 
     const games = useSelector((state) => state.games)
-
+    console.log("Esto es el largo de array de games ",games.length);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -24,10 +24,10 @@ const Cards = () => {
 
     //y armamoss la variable de total de paginas
     const totalPage = games.length / porPagina;
-    
+
     return (
-        <div>
-            <Paginado pagina={pagina} setPagina={setPagina} totalPage={totalPage}/>
+        <div style={{display:"flex", flexDirection:"column", width:"100%", justifyContent:"center"}}>
+            <Paginado pagina={pagina} setPagina={setPagina} totalPage={totalPage} />
             <div className="card-list">
                 {/* preguntamos si hay algo en el array de games, para hacer el loading,
                 hacemos un slice a games para cortar los juegos que van por pagina, y vamos cambiando el lugar donde se corta los juegos, utilizando el estado de la pagina
@@ -41,7 +41,10 @@ const Cards = () => {
                         game={game}
                     />
                 ))
-                : <img src="" alt="Loader" /> }
+                    : <div className="cardsLoader">
+                        <img src="/img/XOsX.gif" alt="Loader" />
+                        <h1>CARGANDO JUEGOS...</h1>
+                    </div>}
 
             </div>
         </div>

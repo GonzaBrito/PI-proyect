@@ -1,21 +1,96 @@
 .landing-container {
-    /* background-image: "..../img/Landing.jpg"; */
-    background-image: url("../../../img/Landing.jpg");
-    background-repeat: no-repeat;
+    background-image: url("../../../public/img/3596-videojuegos.png");
     background-position: center center;
-    height: 1249px;
-    background-attachment: fixed;
-    background-size: cover;
-    /* height: 915px; 
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center; */
+    height: 100vh;
+    position: relative;
 }
 
+.buttonContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 250px;
+  right: 880px;
+}
+
+
 .game-button {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 10px 30px;
+  transition: 0.5s;
+  position: relative;
+  font-size: 17px;
+  background: #333;
+  border: none;
+  color: #fff;
+}
+
+.game-button:hover {
+  letter-spacing: 0.25em;
+  background: #ff1867;
+  color: #ff1867;
+  box-shadow: 0 0 45px #ff1867;
+}
+
+.game-button::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: #222222;
+}
+
+.game-button span {
+  position: relative;
+  z-index: 1;
+}
+
+.game-button i {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.game-button i::before {
+  content: '';
+  position: absolute;
+  border: 2px solid #ff1867;
+  width: 7px;
+  height: 4px;
+  top: -3.5px;
+  left: 80%;
+  background: #222222;
+  transform: translateX(-50%);
+  transition: 0.5s;
+}
+
+.game-button:hover i::before {
+  width: 20px;
+  left: 20%;
+}
+
+.game-button i::after {
+  content: '';
+  position: absolute;
+  border: 2px solid #ff1867;
+  width: 7px;
+  height: 4px;
+  bottom: -3.5px;
+  left: 20%;
+  background: #222222;
+  transform: translateX(-50%);
+  transition: 0.5s;
+}
+
+.game-button:hover i::after {
+  width: 20px;
+  left: 80%;
+}
+
+/* .game-button {
     background-position: center center;
-    background-color: #ff7979;
+    background-color: #5c4343;
     color: #fff;
     border: none;
     border-radius: 20px;
@@ -24,12 +99,13 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
-    box-shadow: 2px 2px 10px #ff7979;
+    box-shadow: 2px 2px 10px #5f4848;
     transition: all 0.2s ease-in-out;
     display:flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    right: ;
     cursor: pointer;
   }
   
@@ -45,5 +121,5 @@
     color: #ff7979;
     box-shadow: 2px 2px 20px #2f3640;
     transform: translateY(-2px);
-  }
+  } */
   

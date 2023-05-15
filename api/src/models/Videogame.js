@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('videogame', {
+  sequelize.define('Videogame', {
     id: {
       type: DataTypes.UUID, //el dato UUID es un dato alfanumerico
       primaryKey: true,
@@ -15,7 +15,7 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     platforms: {
@@ -24,14 +24,14 @@ module.exports = (sequelize) => {
     },
     background_image: {
       type: DataTypes.STRING,
-      defaultValue: ".../img/Gaming Emblems Collection.jpg"
+      defaultValue: "https://www.aragonmusical.com/wp-content/uploads/2022/12/Videojuegos-660x330.webp"
     },
     released: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.DATEONLY,
+      allowNull: false,
     },
     rating: {
-      type: DataTypes.STRING,
+      type: DataTypes.FLOAT,
       allowNull: false
     },
   },

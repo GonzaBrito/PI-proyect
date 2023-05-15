@@ -1,6 +1,6 @@
 .SearchBar-container{
     background-color: black;
-    height: 70px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,7 +9,20 @@
 
 .SearchBar-container .allGames{
     position: absolute;
-    right: 225px;
+    left: 500px;
+    text-align: center;
+    padding: 1em;
+    border-radius: 15px;
+    background-color: #ccc;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+
+.create{
+    position: absolute;
+    right: 115px;
     text-align: center;
     padding: 1em;
     border-radius: 15px;
@@ -20,18 +33,8 @@
 }
 
 .button{
-    text-align: center;
-    padding: 1em;
-    border-radius: 15px;
-    background-color: #ccc;
-    cursor: pointer;
-    font-weight: bold;
-    margin-left: 10px;
-}
-
-.create{
     position: absolute;
-    right: 140px;
+    right: 525px;
     text-align: center;
     padding: 1em;
     border-radius: 15px;
@@ -42,6 +45,8 @@
 }
 
 .input {
+    position: absolute;
+    right: 610px;
     width: 20%;
     border: none;
     outline: none;

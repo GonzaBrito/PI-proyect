@@ -27,9 +27,9 @@ const SearchBar = () => {
                 value={search}
                 onChange = {(event) => setSearch(event.target.value)} 
             />
-            <button className="button" onClick={(event) => mandar(event)} >Buscar</button>
+            <button className="button" onClick={(event) => mandar(event)} >Search</button>
             <button className="allGames" onClick={() => dispatch(getGames())} >All Games</button>
-            <button className="create" onClick={() => navigate("/create")} >Create</button>
+            <button className="create" onClick={() => navigate("/create")} >Create ➕</button>
         </div>
     )
 }
