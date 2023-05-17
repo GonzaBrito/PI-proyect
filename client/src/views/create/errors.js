@@ -2,8 +2,12 @@
 const validate = (form) => {
     let error = {};
     //let validUrl = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|jpeg)/;
+    var expresionRegularIMG = /\.(gif|jpe?g|tiff?|png|webp|bmp)$/i;
 
-    
+    var expresionRegularURL = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+
+
+
     if (form.name === "" || !form.name?.trim()) {
         error.name = "This field cannot be empty";
     }
@@ -32,12 +36,21 @@ const validate = (form) => {
         error.released = "Choose a valid date";
     }
     //-------------------------------------------------------------------------------------------------------
+
     if (form.rating === "" || !form.rating?.trim()) {
         error.rating = "This field cannot be empty";
     }
     if (form.rating < 1 || form.rating > 5) {
         error.rating = "Rating must be between 1 and 5";
     }
+    //-------------------------------------------------------------------------------------------------------
+
+    if (!expresionRegularURL.test(form.background_image)) {
+        // if (!expresionRegularIMG.test(form.background_image)) {
+            error.background_image = "This url is wrong";
+        // }
+    }
+
 
 
     return error;

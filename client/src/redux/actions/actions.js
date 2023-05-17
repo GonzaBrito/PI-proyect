@@ -8,6 +8,7 @@ export const FILTER_GENRES = "FILTER_GENRES"
 export const FILTER_SORTED = "FILTER_SORTED"
 export const GET_PLATFORMS = "GET_PLATFORMS"
 export const POST_GAMES = "POST_GAMES"
+export const FILTER_ORIGIN = "FILTER_ORIGIN"
 
 
 
@@ -47,12 +48,12 @@ export const getGameId = (id) => {
 
 export const postGame = async (payload) => {
     // return async (dispatch) => {
-        try {
-            const response = await axios.post(`http://localhost:3001/videogames/`, payload);
-            return response.data;
-        } catch (error) {
-            console.error("error", error)
-        }
+    try {
+        const response = await axios.post(`http://localhost:3001/videogames/`, payload);
+        return response.data;
+    } catch (error) {
+        console.error("error", error)
+    }
     // };
 };
 
@@ -87,14 +88,14 @@ export const sortedGames = (order) => {
         let filtrados = [];
         if (order === "asc") {
             filtrados = gamesData.sort((a, b) => a.name.localeCompare(b.name))
-        } 
-        if(order === "des"){
+        }
+        if (order === "des") {
             filtrados = gamesData.sort((a, b) => b.name.localeCompare(a.name))
         }
-        if(order === "max"){
+        if (order === "max") {
             filtrados = gamesData.sort((a, b) => b.rating - a.rating)
         }
-        if(order === "min"){
+        if (order === "min") {
             filtrados = gamesData.sort((a, b) => a.rating - b.rating)
         }
         return dispatch({ type: FILTER_SORTED, payload: filtrados })
@@ -110,5 +111,38 @@ export const getPlatforms = () => {
         return dispatch({ type: GET_PLATFORMS, payload: filterPlat })
     }
 }
+
+
+export const filterOrigin = (status) => {
+    return { type: FILTER_ORIGIN, payload: status};
+};
+
+
+
+
+
+
+
+
+
+
+
+// export const filterOrigin = (status, games) => {
+//     return async function (dispatch) {
+//         let filterXorigin;
+
+//         if (status === "Local") {
+//             filterXorigin = games.allVideogames?.filter(
+//                 (videogame) => typeof videogame.id === "string"
+//             );
+//         }
+//         if (status === "Api") {
+//             filterXorigin = games.allVideogames?.filter(
+//                 (videogame) => typeof videogame.id === "number"
+//             );
+//         }
+//         return dispatch({ type: FILTER_ORIGIN, payload: filterXorigin })
+//     }
+// }
 
 

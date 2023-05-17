@@ -12,7 +12,7 @@ const Cards = () => {
     const porPagina = 15;
 
     const games = useSelector((state) => state.games)
-    console.log("Esto es el largo de array de games ",games.length);
+    
     const dispatch = useDispatch();
 
     useEffect(() => {
