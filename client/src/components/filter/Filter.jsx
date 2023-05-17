@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getGenres, getGamesGen, sortedGames } from "../../redux/actions/actions";
+import { getGenres, getGamesGen, sortedGames, filterOrigin } from "../../redux/actions/actions";
 import "./filter.css";
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom"
@@ -17,9 +17,18 @@ const Filter = () => {
     dispatch(getGenres())
   }, []);
 
+
+
   return (
     <div className="filter-container">
       <div className="filterContainer-info">
+
+        <div className="generos-container__origin">
+
+          <h2>ORIGIN</h2>
+          <button className="originButton" onClick={() => dispatch(filterOrigin("Api", games))} >Api</button>
+          <button className="originButton" onClick={() => dispatch(filterOrigin("Local", games))} >Local</button>
+        </div>
 
         <div className="generos-container__sort">
 

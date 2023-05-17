@@ -11,12 +11,25 @@
     flex-direction: column;
 }
 
+.generos-container__origin{
+    margin-top: 45px;
+}
+.originButton{
+    text-align: center;
+    padding: 1em;
+    border-radius: 15px;
+    background-color: #ccc;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
 .generos-container__sort{
-    margin-top: 65px;
+    margin-top: 45px;
 }
 
 .generos-container__rating{
-    margin-top: 50px;
+    margin-top: 45px;
 }
 
 .generos-container__generos{

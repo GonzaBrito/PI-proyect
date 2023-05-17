@@ -110,7 +110,7 @@ const Create = () => {
                         <div className="containerNI">
                             <Input name="name" value={form?.name} label="Name" onChange={handleChange} error={error.name} />
 
-                            <Input name="background_image" value={form?.background_image} label="Image" onChange={handleChange} />
+                            <Input name="background_image" value={form?.background_image} label="Image" onChange={handleChange} error={error.background_image} />
                         </div>
 
                         <div className="containerDR">
